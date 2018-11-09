@@ -13,5 +13,12 @@ public class Rocket : MonoBehaviour {
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = speed;
     }
-	
+
+    private void Update()
+    {
+        Vector2 direction = rb.velocity;
+        //transform.rotation = Quaternion.AngleAxis(Mathf.Acos(direction.y), Vector3.forward);
+        transform.right = direction;
+    }
+
 }
