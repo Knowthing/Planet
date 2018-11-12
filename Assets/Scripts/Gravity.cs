@@ -5,26 +5,24 @@ using UnityEngine;
 public class Gravity : MonoBehaviour {
 
     public float G = 100f;
-    public GameObject[] targets = null;
+    //public GameObject[] targets = null;
+    private GameObject target;
+
+    private void Start(){
+        target = GameObject.FindWithTag("Rocket");
+    }
 
     private void FixedUpdate()
     {
+        /*
         if (targets != null) {
             foreach ( GameObject target in targets) {
                 Attract(target);
             }
         }
+        */
+        Attract(target);
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     void Attract(GameObject target) {
         Rigidbody2D targetRb = target.GetComponent<Rigidbody2D>();
